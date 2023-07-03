@@ -1,7 +1,7 @@
 import Home from "./pages/Home";
 import {Routes,Route} from 'react-router-dom'
 import Register from './pages/Register'
-import Login from './pages/Login'
+import LogIn from './pages/LogIn'
 import Footer from "./components/Footer";
 import ProductList from "./pages/ProductList";
 import Product from "./pages/Product";
@@ -22,7 +22,7 @@ export default function App() {
       <Routes>
         <Route exact path="/" element={<Home/>} />
         <Route exact path="/register" element={user?<Home/>:<Register/>} />
-        <Route exact path="/login" element={user?<Home/>:<Login/>} />
+        <Route exact path="/login" element={user?<Home/>:<LogIn/>} />
         <Route exact path="/products" element={<ProductList/>} />
         <Route exact path="/cart" element={<Cart/>} />
         <Route exact path="/product/:id" element={<Product/>} />
