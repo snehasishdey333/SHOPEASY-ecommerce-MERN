@@ -1,11 +1,10 @@
 
 import { Link } from "react-router-dom"
-import {useState,useContext} from 'react'
+import {useState} from 'react'
 import axios from 'axios'
 import {useNavigate} from 'react-router-dom'
 import { useDispatch } from "react-redux"
 import {useSelector} from 'react-redux'
-// import { UserContext } from '../context/UserContext'
 import URL from '../url'
 import { loginFailure, loginStart, loginSuccess } from "../redux/userRedux"
 
@@ -39,32 +38,11 @@ const handleLogin=async (e)=>{
 
 }
 
-// async function handleLogin(ev) {
-//     ev.preventDefault();
-//     const response = await fetch(URL+'/api/auth/login', {
-//       method: 'POST',
-//       body: JSON.stringify({email, password}),
-//       headers: {'Content-Type':'application/json'},
-//       credentials: 'include',
-//     });
-//     if (response.ok) {
-//       response.json().then(userInfo => {
-//         // console.log(userInfo)
-//         setUser(userInfo);
-//         navigate('/')
-//       });
-//     } else {
-//       alert('wrong credentials');
-//     }
-//   }
+
 
   return (
     <>
-    
-    {/* <div className='w-full px-8 py-4 text-left bg-black md:px-[200px] flex justify-between items-center'>
-      <div className='text-lg font-bold text-white cursor-pointer md:text-xl '><Link to="/">MyBlog</Link></div>
-      <div className='text-lg text-white'><Link to="/register">Register</Link></div>
-    </div> */}
+  
 
 
 
