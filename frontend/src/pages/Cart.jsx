@@ -59,7 +59,7 @@ const Cart = () => {
                 <p>₹{!cart.total?0:cart.total}</p>
               </div>
             </div>
-            <button className="bg-[#FF597B] text-lg text-white px-4 hover:bg-white hover:text-[#FF597B] border-2 border-[#FF597B] py-3 mb-1 md:mb-2"><Link to={user && cart.products.length>1 ? "/checkout/address":"/"}>CHECKOUT</Link></button>
+            <button className="bg-[#FF597B] text-lg text-white px-4 hover:bg-white hover:text-[#FF597B] border-2 border-[#FF597B] py-3 mb-1 md:mb-2"><Link to={user && cart.products.length>=1 ? "/checkout/address":"/"}>CHECKOUT</Link></button>
             {/* <button className="bg-[#FF597B] text-lg text-white px-4 hover:bg-white hover:text-[#FF597B] border-2 border-[#FF597B] py-3">PAY USING STRIPE</button> */}
         </div>
     </div>
