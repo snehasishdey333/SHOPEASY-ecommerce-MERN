@@ -3,7 +3,7 @@ import Announcement from "../components/Announcement"
 import Navbar from "../components/Navbar"
 import { Link, useNavigate } from "react-router-dom"
 import CartItem from "../components/CartItem"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import axios from "axios"
 import URL from '../url'
 
@@ -19,8 +19,14 @@ const AddressPage = () => {
   const TOKEN=(JSON.parse(JSON.parse(localStorage.getItem("persist:root")).user).currentUser.accessToken)
   //console.log(wishList)
 // console.log(addressDetails)
+useEffect(()=>{
+  window.scrollTo(0, 0);
+},[])
 
 const handleCOD=()=>{
+
+  
+  
 
     setError(false)
     setSuccess(false)

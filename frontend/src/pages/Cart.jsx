@@ -3,12 +3,16 @@ import Announcement from "../components/Announcement"
 import CartItem from "../components/CartItem"
 import Navbar from "../components/Navbar"
 import { Link } from "react-router-dom"
+import { useEffect } from "react"
 
 
 const Cart = () => {
   const cart=useSelector(state=>state.cart)
   const user=useSelector(state=>state.user.currentUser)
   const wishList=useSelector(state=>state.wishList)
+  useEffect(()=>{
+    window.scrollTo(0, 0);
+  },[])
 //  console.log(cart.products)
   return (
     <div>
@@ -59,7 +63,7 @@ const Cart = () => {
                 <p>₹{!cart.total?0:cart.total}</p>
               </div>
             </div>
-            <button className="bg-[#FF597B] text-lg text-white px-4 hover:bg-white hover:text-[#FF597B] border-2 border-[#FF597B] py-3 mb-1 md:mb-2"><Link to={user && cart.products.length>1 ? "/checkout/address":"/"}>CHECKOUT</Link></button>
+            <button className="bg-[#FF597B] text-lg text-white px-4 hover:bg-white hover:text-[#FF597B] border-2 border-[#FF597B] py-3 mb-1 md:mb-2"><Link to={user && cart.products.length>=1 ? "/checkout/address":"/"}>CHECKOUT</Link></button>
             {/* <button className="bg-[#FF597B] text-lg text-white px-4 hover:bg-white hover:text-[#FF597B] border-2 border-[#FF597B] py-3">PAY USING STRIPE</button> */}
         </div>
     </div>

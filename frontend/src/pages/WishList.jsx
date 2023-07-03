@@ -5,11 +5,12 @@ import Navbar from "../components/Navbar"
 import { Link } from "react-router-dom"
 import ProductItem from "../components/ProductItem"
 import WishListItem from "../components/WishListItem"
+import { useState } from "react"
 
 
 const WishList = () => {
   const wishlist=useSelector(state=>state.wishList)
-  
+ 
   return (
     <div>
     <Navbar/>
