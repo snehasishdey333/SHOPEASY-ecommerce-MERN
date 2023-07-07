@@ -4,8 +4,12 @@ import Announcement from '../components/Announcement'
 import {TiTick} from 'react-icons/ti'
 import { Link } from 'react-router-dom'
 import { useSelector } from 'react-redux'
+import { useEffect } from 'react'
 
 const Congratulations = () => {
+  useEffect(()=>{
+    window.scrollTo(0, 0);
+  },[])
     const user=useSelector(state=>state.user.currentUser)
   return (
     <div>

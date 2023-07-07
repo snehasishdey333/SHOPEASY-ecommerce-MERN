@@ -29,6 +29,9 @@ const Products = ({cat,filters,sort}) => {
   }
 
 useEffect(()=>{
+ 
+    window.scrollTo(0, 0);
+  
   fetchProducts()
 },[cat])
 

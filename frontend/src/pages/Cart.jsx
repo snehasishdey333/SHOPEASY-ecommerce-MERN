@@ -3,12 +3,16 @@ import Announcement from "../components/Announcement"
 import CartItem from "../components/CartItem"
 import Navbar from "../components/Navbar"
 import { Link } from "react-router-dom"
+import { useEffect } from "react"
 
 
 const Cart = () => {
   const cart=useSelector(state=>state.cart)
   const user=useSelector(state=>state.user.currentUser)
   const wishList=useSelector(state=>state.wishList)
+  useEffect(()=>{
+    window.scrollTo(0, 0);
+  },[])
 //  console.log(cart.products)
   return (
     <div>

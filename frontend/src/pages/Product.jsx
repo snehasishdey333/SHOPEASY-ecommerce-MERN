@@ -6,6 +6,7 @@ import { useEffect, useState } from "react"
 import URL from "../url"
 import { addProduct } from "../redux/cartRedux"
 import { useDispatch } from "react-redux"
+import Loader from "../components/Loader"
 
 
 
@@ -19,6 +20,7 @@ const Product = () => {
   const [quantity,setQuantity]=useState(1)
   const [color,setColor]=useState("")
   const [size,setSize]=useState("")
+  const [loading,setLoading]=useState(false)
   const dispatch=useDispatch()
 
   // console.log(color)
@@ -33,6 +35,7 @@ const Product = () => {
   }
   
   const fetchProduct=async ()=>{
+    setLoading(true)
     try{
       const res=await axios.get(URL+"/api/products/product/"+productId)
       
@@ -40,9 +43,11 @@ const Product = () => {
       setColor(res.data.color[0])
       setSize(res.data.size[0])
       // console.log(res.data)
+      setLoading(false)
     }
     catch(err){
       console.log(err)
+      setLoading(true)
     }
   }
 
@@ -57,7 +62,9 @@ useEffect(()=>{
     <div>
     <Navbar/>
     <Announcement/>
-    <div className="px-4 md:px-[50px] my-24 flex justify-center items-center md:items-start md:flex-row flex-col space-y-16 md:space-x-16">
+    {loading?<div className="flex justify-center items-center h-[70vh]">
+        <Loader/>
+    </div>:<div className="px-4 md:px-[50px] my-24 flex justify-center items-center md:items-start md:flex-row flex-col space-y-16 md:space-x-16">
         {/* left */}
         <div className="flex justify-center items-center w-full md:w-[30%] px-4 md:px-0">
           <img src={product.img} alt="product image" className="mt-2"/>
@@ -97,7 +104,7 @@ useEffect(()=>{
            </div>
            <button onClick={handleCart} className="bg-[#FF597B] mt-8 text-white px-6 hover:bg-white hover:text-[#FF597B] text-xl border-2 border-[#FF597B] py-3">Add to Cart</button>
         </div>
-    </div>
+    </div>}
     </div>
   )
 }
