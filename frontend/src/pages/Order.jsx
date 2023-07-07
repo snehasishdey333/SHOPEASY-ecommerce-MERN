@@ -49,7 +49,7 @@ const Order = () => {
       <div>
            {loading?<div className="flex justify-center items-center h-[70vh]">
             <Loader/>
-           </div>:orders.map((o)=>(
+           </div>:orders.reverse().map((o)=>(
             <OrderItem key={o._id} o={o}/>
            ))}
       </div>
